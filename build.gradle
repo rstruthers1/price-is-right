@@ -35,9 +35,13 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-rest')
 	compile('org.springframework.data:spring-data-rest-hal-browser')
 	compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.javamoney:moneta:1.0')
+	//compile('com.fasterxml.jackson.core:jackson-databind:2.2.3')
 	//compile group: 'com.datastax.cassandra', name: 'cassandra-driver-core', version: '3.3.2'
 	runtime('org.springframework.boot:spring-boot-devtools')
 	compileOnly('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile('org.springframework.restdocs:spring-restdocs-mockmvc')
+
+
 }

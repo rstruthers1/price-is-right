@@ -23,7 +23,6 @@ public class KeyspaceConfig {
                 .withAuthProvider(new PlainTextAuthProvider("iccassandra", "2c80dc59064da3c5e450e752e99cbd99"));
 
 
-
         try (final Cluster cluster = clusterBuilder.build()) {
             final Metadata metadata = cluster.getMetadata();
             System.out.printf("Connected to cluster: %s\n", metadata.getClusterName());
