@@ -4,6 +4,7 @@ buildscript {
 	}
 	repositories {
 		mavenCentral()
+		maven { url "http://repo.spring.io/libs-release" }
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -20,14 +21,21 @@ sourceCompatibility = 1.8
 
 repositories {
 	mavenCentral()
+	maven { url "http://repo.spring.io/libs-release" }
+	maven { url "http://repo.spring.io/libs-milestone" }
+	maven { url "http://repo.spring.io/libs-snapshot" }
+
 }
 
 
+
+
 dependencies {
-//	compile('org.springframework.boot:spring-boot-starter-data-cassandra')
+	compile('org.springframework.boot:spring-boot-starter-data-cassandra')
 	compile('org.springframework.boot:spring-boot-starter-data-rest')
 	compile('org.springframework.data:spring-data-rest-hal-browser')
 	compile('org.springframework.boot:spring-boot-starter-web')
+	//compile group: 'com.datastax.cassandra', name: 'cassandra-driver-core', version: '3.3.2'
 	runtime('org.springframework.boot:spring-boot-devtools')
 	compileOnly('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
