@@ -49,7 +49,9 @@ The database is provided by Instaclustr Heroku plugin which hosts the database i
 
 ## Get the code
 
+```
 git clone https://github.com/rstruthers1/price-is-right
+```
 
 
 ## Build instructions - local
