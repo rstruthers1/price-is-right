@@ -3,6 +3,8 @@ package com.myRetail.products.api;
 import com.myRetail.products.TestUtils;
 import com.myRetail.products.api.model.CurrentPrice;
 import com.myRetail.products.api.model.ProductCurrentPriceResponse;
+import com.myRetail.products.exceptions.ProductNotFoundException;
+import com.myRetail.products.exceptions.ProductPriceNotFoundException;
 import com.myRetail.products.service.ProductPriceService;
 import com.myRetail.products.util.PriceUtil;
 import org.junit.Before;
@@ -50,6 +52,36 @@ public class ProductPriceControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.get("http://mytest/products/3")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
+    }
+
+    @Test
+    public void productPrice_ProductNotFound_Test() throws Exception {
+        ProductCurrentPriceResponse productCurrentPriceResponse = new ProductCurrentPriceResponse();
+        CurrentPrice currentPrice = new CurrentPrice();
+        currentPrice.setValue(PriceUtil.getTwoDecimalPlaceValue(42.42));
+        currentPrice.setCurrencyCode("USD");
+        productCurrentPriceResponse.setCurrentPrice(currentPrice);
+        Mockito.when(productPriceService.getCurrentProductPrice(3))
+                .thenThrow(new ProductNotFoundException("Product with id 3 not found"));
+
+        mockMvc.perform(MockMvcRequestBuilders.get("http://mytest/products/3")
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    public void productPrice_ProducPricetNotFound_Test() throws Exception {
+        ProductCurrentPriceResponse productCurrentPriceResponse = new ProductCurrentPriceResponse();
+        CurrentPrice currentPrice = new CurrentPrice();
+        currentPrice.setValue(PriceUtil.getTwoDecimalPlaceValue(42.42));
+        currentPrice.setCurrencyCode("USD");
+        productCurrentPriceResponse.setCurrentPrice(currentPrice);
+        Mockito.when(productPriceService.getCurrentProductPrice(3))
+                .thenThrow(new ProductPriceNotFoundException("Price not found for product with id 3"));
+
+        mockMvc.perform(MockMvcRequestBuilders.get("http://mytest/products/3")
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound());
     }
 
     @Test
