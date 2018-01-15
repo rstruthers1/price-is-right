@@ -49,6 +49,10 @@ Run the following command:
 ./gradlew bootRun
 ```
 
+## Deploy to heroku
+
+Deploy will happen to heroku upon any push to master in github
+
 ## Endpoints - local
 
 *Get product price*
@@ -81,10 +85,6 @@ Content-Type:application/json
 }
 ```
 
-
-## Deploy to heroku
-
-Deploy will happen to heroku upon any push to master in github
 
 ## Endpoints - remote
 
