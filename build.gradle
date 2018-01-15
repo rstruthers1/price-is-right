@@ -28,20 +28,42 @@ repositories {
 }
 
 
-
-
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-cassandra')
 	compile('org.springframework.boot:spring-boot-starter-data-rest')
 	compile('org.springframework.data:spring-data-rest-hal-browser')
 	compile('org.springframework.boot:spring-boot-starter-web')
-    compile('org.javamoney:moneta:1.0')
-	//compile('com.fasterxml.jackson.core:jackson-databind:2.2.3')
-	//compile group: 'com.datastax.cassandra', name: 'cassandra-driver-core', version: '3.3.2'
+
+    compile('commons-io:commons-io:2.6')
+
 	runtime('org.springframework.boot:spring-boot-devtools')
 	compileOnly('org.projectlombok:lombok')
+
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile('org.springframework.restdocs:spring-restdocs-mockmvc')
 
 
+}
+
+apply from: "$rootDir/gradle/coverage.gradle"
+
+// Uncomment the following if you want to see standard error/standard out in console when running tests.
+test {
+    testLogging {
+        // Make sure output from
+        // standard out or error is shown
+        // in Gradle output.
+        showStandardStreams = true
+
+        // Or we use events method:
+        // events 'standard_out', 'standard_error'
+
+        // Or set property events:
+        // events = ['standard_out', 'standard_error']
+
+        // Instead of string values we can
+        // use enum values:
+        // events org.gradle.api.tasks.testing.logging.TestLogEvent.STANDARD_OUT,
+        //        org.gradle.api.tasks.testing.logging.TestLogEvent.STANDARD_ERROR,
+    }
 }

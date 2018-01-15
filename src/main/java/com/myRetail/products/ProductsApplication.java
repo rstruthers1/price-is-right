@@ -4,6 +4,7 @@ package com.myRetail.products;
 import com.datastax.driver.core.Session;
 import com.myRetail.products.cassandra.domain.ProductPrice;
 import com.myRetail.products.cassandra.repos.ProductPriceRepository;
+import com.myRetail.products.util.PriceUtil;
 import com.myRetail.products.util.RandomGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -56,12 +57,12 @@ public class ProductsApplication implements CommandLineRunner {
     public void saveData(){
         System.out.println("===================Save product prices to Cassandra===================");
 
-        ProductPrice cust_1 = new ProductPrice(15117729, getTwoDecimalPlaceValue(0.0), "USD");
-        ProductPrice cust_2 = new ProductPrice(16483589, getTwoDecimalPlaceValue(0.0), "USD");
-        ProductPrice cust_3 = new ProductPrice(16696652, getTwoDecimalPlaceValue(155.32), "USD");
-        ProductPrice cust_4 = new ProductPrice(16752456, getTwoDecimalPlaceValue(0.0), "USD");
-        ProductPrice cust_5 = new ProductPrice(15643793, getTwoDecimalPlaceValue(0.0), "USD");
-        ProductPrice cust_6 = new ProductPrice(13860428, getTwoDecimalPlaceValue(9.29), "USD");
+        ProductPrice cust_1 = new ProductPrice(15117729, PriceUtil.getTwoDecimalPlaceValue(0.0), "USD");
+        ProductPrice cust_2 = new ProductPrice(16483589, PriceUtil.getTwoDecimalPlaceValue(0.0), "USD");
+        ProductPrice cust_3 = new ProductPrice(16696652, PriceUtil.getTwoDecimalPlaceValue(155.32), "USD");
+        ProductPrice cust_4 = new ProductPrice(16752456, PriceUtil.getTwoDecimalPlaceValue(0.0), "USD");
+        ProductPrice cust_5 = new ProductPrice(15643793, PriceUtil.getTwoDecimalPlaceValue(0.0), "USD");
+        ProductPrice cust_6 = new ProductPrice(13860428, PriceUtil.getTwoDecimalPlaceValue(9.29), "USD");
 
 
         productPriceRepository.save(cust_1);
@@ -72,9 +73,7 @@ public class ProductsApplication implements CommandLineRunner {
         productPriceRepository.save(cust_6);
     }
 
-    public static BigDecimal getTwoDecimalPlaceValue(double value) {
-        return new BigDecimal(value).setScale(2, RoundingMode.CEILING);
-    }
+
 
     public void lookup(){
         System.out.println("===================Lookup all product prices===================");

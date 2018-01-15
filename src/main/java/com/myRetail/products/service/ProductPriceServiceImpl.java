@@ -8,6 +8,7 @@ import com.myRetail.products.cassandra.domain.ProductPrice;
 import com.myRetail.products.cassandra.repos.ProductPriceRepository;
 import com.myRetail.products.exceptions.ProductNotFoundException;
 import com.myRetail.products.exceptions.ProductPriceNotFoundException;
+import com.myRetail.products.util.ProductPriceConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,8 @@ public class ProductPriceServiceImpl implements ProductPriceService {
     private static final String PRODUCT_WITH_ID_NOT_FOUND = "Product with id %d not found";
 
     private static final String PRODUCT_PRICE_WITH_ID_NOT_FOUND = "Price not found for product with id %d";
+
+
 
     @Autowired
     private RestTemplate restTemplate;
@@ -71,8 +74,8 @@ public class ProductPriceServiceImpl implements ProductPriceService {
     }
 
     private String fetchProductName(Integer id) throws ProductNotFoundException {
-        String url = "http://redsky.target.com/v2/pdp/tcin/" + id + "?excludes=taxonomy,price,promotion,bulk_ship,rating_and_review_reviews,rating_and_review_statistics,question_answer_statistics";
 
+        String url = String.format(ProductPriceConstants.PRODUCT_SERVICE_URL, id);
         String product = null;
 
         try {
