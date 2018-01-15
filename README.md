@@ -12,7 +12,20 @@ for spinning up proof-of-concepts quickly without having to focus on the deploym
 
 You can try on the hosted demo site via swagger:
 
+http://price-is-right-rstruthers.herokuapp.com/swagger-ui.html
 
+**Example product ids**
+
+*Valid ids*
+
+```
+16696652, 13860428, 138604289
+```
+
+*Invalid ids*
+```
+15117729, 16483589, 16752456, 15643793
+```
 
 ## Framework used
 
@@ -154,11 +167,7 @@ Content-Type:application/json
 }
 ```
 
-## Example product ids
 
-```
-15117729, 16483589, 16696652, 16752456, 15643793
-```
 
 
 
