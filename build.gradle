@@ -1,6 +1,7 @@
 buildscript {
 	ext {
 		springBootVersion = '1.5.9.RELEASE'
+        springFoxVersion = '2.7.0'
 	}
 	repositories {
 		mavenCentral()
@@ -31,10 +32,16 @@ repositories {
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-cassandra')
 	compile('org.springframework.boot:spring-boot-starter-data-rest')
-	compile('org.springframework.data:spring-data-rest-hal-browser')
 	compile('org.springframework.boot:spring-boot-starter-web')
 
     compile('commons-io:commons-io:2.6')
+
+    compile ("io.springfox:springfox-swagger2:${springFoxVersion}") {
+        exclude group: 'com.google.guava', module: 'guava'
+    }
+    compile ("io.springfox:springfox-swagger-ui:${springFoxVersion}") {
+        exclude group: 'com.google.guava', module: 'guava'
+    }
 
 	runtime('org.springframework.boot:spring-boot-devtools')
 	compileOnly('org.projectlombok:lombok')

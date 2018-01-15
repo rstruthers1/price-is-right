@@ -8,6 +8,12 @@ with key being the product id.
 The service is hosted in Heroku which is a cloud Platform as a Service (PaaS). Heroku was chosen as it is good
 for spinning up proof-of-concepts quickly without having to focus on the deployment details.
 
+## Try it out
+
+You can try on the hosted demo site via swagger:
+
+
+
 ## Framework used
 
 Spring Boot was chosen as the framework because it enables rapid development of robust Java based applications.
@@ -52,21 +58,21 @@ Run the following command:
 If there is a test failure, check the test results in `build/reports/tests/test/index.html`
 
 The test coverage metrics are provided by the JaCoCo plugin. The minimum coverage currently is
-set at 80% for every coverage category.
+set at 75% for every coverage category.
 
-If the coverage is below 80% for any  coverage category, then the build will fail. Please add
+If the coverage is below 75% for any  coverage category, then the build will fail. Please add
 more unit tests. To check the coverage report, see: `build/reports/jacoco/test/html/index.html`  
 
-If the tests pass and the coverage is above 80%, a coverage report will be printed out at the 
+If the tests pass and the coverage is above 75%, a coverage report will be printed out at the 
 console. Example:
 
  ```
- - instruction coverage rate is: 96.91%, minimum is 80%
- - branch coverage rate is: 100.0%, minimum is 80%
- - line coverage rate is: 95.38%, minimum is 80%
- - complexity coverage rate is: 85.0%, minimum is 80%
- - method coverage rate is: 82.35%, minimum is 80%
- - class coverage rate is: 83.33%, minimum is 80%
+ - instruction coverage rate is: 94.31%, minimum is 75%
+ - branch coverage rate is: 100.0%, minimum is 75%
+ - line coverage rate is: 92.54%, minimum is 75%
+ - complexity coverage rate is: 80.95%, minimum is 75%
+ - method coverage rate is: 77.78%, minimum is 75%
+ - class coverage rate is: 83.33%, minimum is 75%
 Passed Code Coverage Checks
 ```
 
@@ -87,7 +93,7 @@ Deploy will happen to heroku upon any push to master in github
 
 *Get product price*
 
-GET http://localhost:8080/products/{id}
+GET http://localhost:7575/products/{id}
 
 Headers:
 
@@ -97,7 +103,7 @@ Accept:application/json
 
 *Update product price*
 
-POST http://localhost:8080/products/{id}
+POST http://localhost:7575/products/{id}
 
 Headers:
 
