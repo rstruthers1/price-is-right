@@ -31,4 +31,8 @@ public class TestUtils {
         String jsonTemplate = TestUtils.readResourceAsString("product-example.json");
         return String.format(jsonTemplate, title);
     }
+
+    public static String updatePriceRequest() {
+        return TestUtils.readResourceAsString("update-price-request.json");
+    }
 }

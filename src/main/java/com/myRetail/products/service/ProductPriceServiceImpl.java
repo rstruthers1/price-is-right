@@ -98,13 +98,7 @@ public class ProductPriceServiceImpl implements ProductPriceService {
             throw new ProductNotFoundException(productWithIdNotFoundMessage(id));
         }
 
-        JsonNode value = null;
-        try {
-            value = tree.findValue("title");
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            throw new ProductNotFoundException(productWithIdNotFoundMessage(id));
-        }
+        JsonNode value = tree.findValue("title");
 
         if (value == null) {
             throw new ProductNotFoundException(productWithIdNotFoundMessage(id));
