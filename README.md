@@ -106,7 +106,7 @@ Deploy will happen to heroku upon any push to master in github
 
 *Get product price*
 
-GET http://localhost:7575/products/{id}
+GET http://localhost:8080/products/{id}
 
 Headers:
 
@@ -116,7 +116,7 @@ Accept:application/json
 
 *Update product price*
 
-PUT http://localhost:7575/products/{id}
+PUT http://localhost:8080/products/{id}
 
 Headers:
 
