@@ -116,7 +116,7 @@ Accept:application/json
 
 *Update product price*
 
-POST http://localhost:7575/products/{id}
+PUT http://localhost:7575/products/{id}
 
 Headers:
 
