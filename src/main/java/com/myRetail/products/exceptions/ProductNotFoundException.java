@@ -1,8 +1,10 @@
 package com.myRetail.products.exceptions;
 
 public class ProductNotFoundException extends ApiException {
+
+
     public ProductNotFoundException(String errorMessage) {
-        super(errorMessage);
+        super(errorMessage, "PRODUCT_NOT_FOUND");
     }
 
     public ProductNotFoundException(String errorMessage, String errorId) {
