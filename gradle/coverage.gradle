@@ -3,12 +3,12 @@ apply plugin: 'jacoco' // Code Coverage Report Generation
 // Code coverage plugin configuration
 ext {
     limits = [
-            'instruction': 0,
-            'branch'     : 0,
-            'line'       : 0,
-            'complexity' : 0,
-            'method'     : 0,
-            'class'      : 0
+            'instruction': 70,
+            'branch'     : 70,
+            'line'       : 70,
+            'complexity' : 70,
+            'method'     : 70,
+            'class'      : 70
     ]
 }
 

@@ -41,6 +41,36 @@ Run the following command:
 ./gradlew clean build
 ```
 
+## Run the unit tests and generate test coverage reports - local
+
+Run the following command:
+
+```
+./gradlew clean test jacocoTestReport
+```
+
+If there is a test failure, check the test results in `build/reports/tests/test/index.html`
+
+The test coverage metrics are provided by the JaCoCo plugin. The minimum coverage currently is
+set at 70% for every coverage category.
+
+If the coverage is below 70% for any  coverage category, then the build will fail. Please add
+more unit tests. To check the coverage report, see: `build/reports/jacoco/test/html/index.html`  
+
+If the tests pass and the coverage is above 70%, a coverage report will be printed out at the 
+console. Example:
+
+ ```
+ - instruction coverage rate is: 85.91%, minimum is 70%
+ - branch coverage rate is: 100.0%, minimum is 70%
+ - line coverage rate is: 86.15%, minimum is 70%
+ - complexity coverage rate is: 75.0%, minimum is 70%
+ - method coverage rate is: 70.59%, minimum is 70%
+ - class coverage rate is: 83.33%, minimum is 70%
+Passed Code Coverage Checks
+```
+
+
 ## To Run - local
 
 Run the following command:
