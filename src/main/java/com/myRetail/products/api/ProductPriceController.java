@@ -22,7 +22,7 @@ public class ProductPriceController {
     ProductPriceService productPriceService;
 
     @RequestMapping(value = "/products/{id}", method = RequestMethod.GET)
-    @ApiOperation(value = "Update the price for a product", notes = "Returns the updated product price" )
+    @ApiOperation(value = "Retrieve a product price based on product id", notes = "Returns a product price" )
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Success", response = ProductCurrentPriceResponse.class),
             @ApiResponse(code = 403, message = "Product with id not found", response = ErrorMessage.class) })
@@ -31,7 +31,7 @@ public class ProductPriceController {
     }
 
     @RequestMapping(value = "/products/{id}", method = RequestMethod.PUT)
-    @ApiOperation(value = "Retrieve a product price based on product id", notes = "Returns a product price" )
+    @ApiOperation(value = "Update the price for a product", notes = "Returns the updated product price" )
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Success", response = ProductCurrentPriceResponse.class),
             @ApiResponse(code = 403, message = "Product with id not found", response = ErrorMessage.class) })
@@ -39,18 +39,5 @@ public class ProductPriceController {
                                            @Valid @RequestBody CurrentPrice currentPrice)  throws Exception{
         return new ResponseEntity<>(productPriceService.updateCurrentProductPrice(id, currentPrice), HttpStatus.OK);
     }
-
-//    @Override
-//    public RepositoryLinksResource process(RepositoryLinksResource resource) {
-//        try {
-//            resource.add(ControllerLinkBuilder.linkTo(ControllerLinkBuilder
-//                    .methodOn(ProductPriceController.class)
-//                    .productPrice(null))
-//                    .withRel("products"));
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//
-//        return resource;
-//    }
+    
 }
