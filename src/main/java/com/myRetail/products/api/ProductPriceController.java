@@ -39,5 +39,5 @@ public class ProductPriceController {
                                            @Valid @RequestBody CurrentPrice currentPrice)  throws Exception{
         return new ResponseEntity<>(productPriceService.updateCurrentProductPrice(id, currentPrice), HttpStatus.OK);
     }
-    
+
 }
